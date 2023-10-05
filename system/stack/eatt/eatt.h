@@ -25,6 +25,7 @@
 
 #define EATT_MIN_MTU_MPS (64)
 #define EATT_DEFAULT_MTU (256)
+#define EATT_MAX_TX_MTU  (1024)
 #define EATT_ALL_CIDS (0xFFFF)
 #define EATT_MAX_TX_MTU  (1024)
 
@@ -68,6 +69,7 @@ class EattChannel {
         ind_confirmation_timer_(NULL) {
     EattChannelSetTxMTU(tx_mtu);
     cl_cmd_q_ = std::deque<tGATT_CMD_Q>();
+    EattChannelSetTxMTU(tx_mtu);
   }
 
   ~EattChannel() {
